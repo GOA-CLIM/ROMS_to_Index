@@ -47,7 +47,25 @@ The averaged for each NMFS management area to the 300 m or 1,000 m isobath (area
 
 -   All areas
 
-The "raw" monthly data are located in the **"/Data/NEP_10k_revised_indices"** folder with the 300 or 1000 at the end of the file name indicating the isobath they are averaged to. They represent the monthly indices either averaged across each depth and spatial domain ("nep_avg\_...") or summed across each depth domain and then averaged across the spatial domain ("nep_sum\_..."). The "/Data/NEP_10k_indices" folder are the old indices that had errors in the time-series fixed by Al.
+The "raw" monthly data are located in the **"/Data/NEP_10k_revised_indices"** folder with the 300 or 1000 at the end of the file name indicating the isobath they are averaged to. They represent the monthly indices either averaged across each depth and spatial domain ("nep_avg\_...") or summed across each depth domain and then averaged across the spatial domain ("nep_sum\_..."). The columns include:
+
+-   **NMFS_AREA**: the NMFS management area
+
+-   **depthclass**: the section of the water column described above (bottom, midwater, surface, all)
+
+-   **value**: the value of the index
+
+-   **summaryStat**: the summarized metric derived from the base ROMS netCDF (depth/spatial averaged or depth summed then spatially averaged)
+
+-   **varname**: variable name
+
+-   **time_step**:
+
+-   **unit**: the original units from the netCDF file prior to being summarized. The "summed" units will therefore be transformed from $m^3$ to $m^2$.
+
+-   **date**: A date representing the month and year (day is arbitrary)
+
+The "/Data/NEP_10k_indices" folder are the old indices that had errors in the time-series fixed by Al.
 
 ## Index derivation
 

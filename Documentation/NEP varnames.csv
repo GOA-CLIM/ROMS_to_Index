@@ -1,94 +1,94 @@
-Ind,NEP Names,Variable,Units
-1,AKs,,
-2,AKt,,
-3,Akt_bak,,
-4,AKv,,
-5,Akv_bak,,
-6,Cop,Small copepod concentration,mg C m^-3
-7,Cs_r,,
-8,Cs_w,,
-9,Det,detritus concentration,mg C m^-3
-10,dstart,,
-11,dt,,
-12,dtfast,,
-13,el,,
-14,Eup,euphausiid concentration,mg C m^-3
-15,Falpha,,
-16,Fbeta,,
-17,Fgamma,,
-18,frat_PhL,,
-19,frat_PhS,,
-20,FSobc_in,,
-21,FSobc_out,,
-22,gamma2,,
-23,hc,,
-24,Hsbl,,
-25,Iron,Iron concentration,micromol Fe m-3
-26,latent,,
-27,lwrad,,
-28,M2nudg,,
-29,M2obc_in,,
-30,M2obc_out,,
-31,M3nudg,,
-32,M3obc_in,,
-33,M3obc_out,,
-34,MZL,Large microzooplankton concentration,mg C m^-3
-35,MZS,Small microzooplankton concentration,mg C m^-3
-36,nAVG,,
-37,NCa,Large copepod concentration,mg C m^-3
-38,ndefAVG,,
-39,ndefHIS,,
-40,ndtfast,,
-41,NH4,Ammonium,mmol N m^-3
-42,nHIS,,
-43,NO3,Nitrate,mmol N m^-3
-44,nRST,,
-45,ntimes,,
-46,ntsAVG,,
-47,ocean_time,,
-48,omega,,
-49,PhL,Large phytoplankton concentration,mg C m^-3
-50,PhS,Small phytoplankton concentration,mg C m^-3
-51,prod_Cop,Small copepod net production rate,mg C m^-2 d^-1
-52,prod_Eup,euphausiid net production rate,mg C m^-2 d^-1
-53,prod_MZL,Large microzooplankton production rate,mg C m^-2 d^-1
-54,prod_MZS,Small microzooplankton production rate,mg C m^-2 d^-1
-55,prod_NCa,Large copepod production rate,mg C m^-2 d^-1
-56,prod_PhL,Large phytoplankton production rate,mg C m^-2 d^-1
-57,prod_PhS,Small phytoplankton production rate,mg C m^-2 d^-1
-58,rdrg,,
-59,rdrg2,,
-60,rho0,,
-61,s_rho,,
-62,s_w,,
-63,salt,Salinity,mg C m^-3???
-64,sensible,,
-65,shflux,,
-66,spherical,,
-67,ssflux,,
-68,sustr,,
-69,svstr,,
-70,swrad,,
-71,Tcline,,
-72,temp,Temperature,Celcius
-73,theta_b,,
-74,theta_s,,
-75,tnu2,,
-76,Tnudg,,
-77,Tobc_in,,
-78,Tobc_out,,
-79,u,u-momentum component,meter second-1
-80,ubar,,
-81,Uwind,,
-82,v,v-momentum component,meter second-1
-83,vbar,,
-84,visc2,,
-85,Vstretching,,
-86,Vtransform,,
-87,Vwind,,
-88,w,,
-89,xl,,
-90,zeta,,
-91,Znudg,,
-92,Zob,,
-93,Zos,,
+Ind,NEP Names,Variable
+1,AKs,
+2,AKt,
+3,Akt_bak,
+4,AKv,
+5,Akv_bak,
+6,Cop,Small copepod concentration
+7,Cs_r,
+8,Cs_w,
+9,Det,detritus concentration
+10,dstart,
+11,dt,
+12,dtfast,
+13,el,
+14,Eup,euphausiid concentration
+15,Falpha,
+16,Fbeta,
+17,Fgamma,
+18,frat_PhL,
+19,frat_PhS,
+20,FSobc_in,
+21,FSobc_out,
+22,gamma2,
+23,hc,
+24,Hsbl,
+25,Iron,Iron concentration
+26,latent,
+27,lwrad,
+28,M2nudg,
+29,M2obc_in,
+30,M2obc_out,
+31,M3nudg,
+32,M3obc_in,
+33,M3obc_out,
+34,MZL,Large microzooplankton concentration
+35,MZS,Small microzooplankton concentration
+36,nAVG,
+37,NCa,Large copepod concentration
+38,ndefAVG,
+39,ndefHIS,
+40,ndtfast,
+41,NH4,Ammonium
+42,nHIS,
+43,NO3,Nitrate
+44,nRST,
+45,ntimes,
+46,ntsAVG,
+47,ocean_time,
+48,omega,
+49,PhL,Large phytoplankton concentration
+50,PhS,Small phytoplankton concentration
+51,prod_Cop,Small copepod net production rate
+52,prod_Eup,euphausiid net production rate
+53,prod_MZL,Large microzooplankton production rate
+54,prod_MZS,Small microzooplankton production rate
+55,prod_NCa,Large copepod production rate
+56,prod_PhL,Large phytoplankton production rate
+57,prod_PhS,Small phytoplankton production rate
+58,rdrg,
+59,rdrg2,
+60,rho0,
+61,s_rho,
+62,s_w,
+63,salt,Salinity
+64,sensible,
+65,shflux,
+66,spherical,
+67,ssflux,
+68,sustr,
+69,svstr,
+70,swrad,
+71,Tcline,
+72,temp,Temperature
+73,theta_b,
+74,theta_s,
+75,tnu2,
+76,Tnudg,
+77,Tobc_in,
+78,Tobc_out,
+79,u,u-momentum component
+80,ubar,
+81,Uwind,
+82,v,v-momentum component
+83,vbar,
+84,visc2,
+85,Vstretching,
+86,Vtransform,
+87,Vwind,
+88,w,
+89,xl,
+90,zeta,
+91,Znudg,
+92,Zob,
+93,Zos,
