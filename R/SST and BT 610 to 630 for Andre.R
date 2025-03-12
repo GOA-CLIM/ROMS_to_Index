@@ -41,11 +41,14 @@ nep_hist$simulation = "historical"
 nep_ssp126 <- read.csv("Data/NEP_10k_revised_indices/nep_avg_wb_ssp126_300.csv")
 nep_ssp126$simulation = "ssp126"
 
+nep_ssp245 <- read.csv("Data/NEP_10k_revised_indices/nep_avg_wb_ssp245_300.csv")
+nep_ssp245$simulation = "ssp245"
+
 nep_ssp585 <- read.csv("Data/NEP_10k_revised_indices/nep_avg_wb_ssp585_300.csv")
 nep_ssp585$simulation = "ssp585"
 
 # Combine in list
-roms_avg_data <- do.call(rbind, list(nep_hind, nep_hist, nep_ssp126, nep_ssp585))
+roms_avg_data <- do.call(rbind, list(nep_hind, nep_hist, nep_ssp126, nep_ssp245, nep_ssp585))
 
 # Add time and date information
 roms_avg_data <- roms_avg_data %>%
@@ -68,6 +71,15 @@ ssp126_biascorrected_nohind <- delta_correction(
   lognormal = FALSE,
   include_hindcast = FALSE)
 
+# - SPP245
+ssp245_biascorrected_nohind <- delta_correction(
+  hindcast = roms_avg_data %>% filter(simulation == "hindcast"),
+  historical = roms_avg_data %>% filter(simulation == "historical"),
+  projection = roms_avg_data %>% filter(simulation == "ssp245"),
+  ref_yrs = 2000:2014, # Overlap years for historical and hindcast ROMS
+  lognormal = FALSE,
+  include_hindcast = FALSE)
+
 # - SSP585
 ssp585_biascorrected_nohind <- delta_correction(
   hindcast = roms_avg_data %>% filter(simulation == "hindcast"),
@@ -83,6 +95,15 @@ ssp126_biascorrected_hind <- delta_correction(
   hindcast = roms_avg_data %>% filter(simulation == "hindcast"),
   historical = roms_avg_data %>% filter(simulation == "historical"),
   projection = roms_avg_data %>% filter(simulation == "ssp126"),
+  ref_yrs = 2000:2014, # Overlap years for historical and hindcast ROMS
+  lognormal = FALSE,
+  include_hindcast = TRUE) # Splice hindcast in
+
+# - SSP245
+ssp245_biascorrected_hind <- delta_correction(
+  hindcast = roms_avg_data %>% filter(simulation == "hindcast"),
+  historical = roms_avg_data %>% filter(simulation == "historical"),
+  projection = roms_avg_data %>% filter(simulation == "ssp245"),
   ref_yrs = 2000:2014, # Overlap years for historical and hindcast ROMS
   lognormal = FALSE,
   include_hindcast = TRUE) # Splice hindcast in
@@ -126,13 +147,19 @@ goa_temp_ssp126_nohind <- ssp126_biascorrected_nohind %>%
   pivot_wider(values_from = c(value_dc, value), names_from = NMFS_AREA) %>%
   mutate(value_dc_610_to_630 = (value_dc_610 * 57225003746 + value_dc_620 * 62597059226 + value_dc_630 * 98582220025) / (57225003746 + 62597059226 + 98582220025)) # Take area weighted mean
 
+goa_temp_ssp245_nohind <- ssp245_biascorrected_nohind %>%
+  filter(varname == "temp" & depthclass %in% c("Surface", "Bottom") & NMFS_AREA %in% c("610", "620", "630")) %>%
+  mutate(simulation = "ssp245") %>%
+  pivot_wider(values_from = c(value_dc, value), names_from = NMFS_AREA) %>%
+  mutate(value_dc_610_to_630 = (value_dc_610 * 57225003746 + value_dc_620 * 62597059226 + value_dc_630 * 98582220025) / (57225003746 + 62597059226 + 98582220025)) # Take area weighted mean
+
 goa_temp_ssp585_nohind <- ssp585_biascorrected_nohind %>%
   filter(varname == "temp" & depthclass %in% c("Surface", "Bottom")  & NMFS_AREA %in% c("610", "620", "630")) %>% 
   mutate(simulation = "ssp585") %>%
   pivot_wider(values_from = c(value_dc, value), names_from = NMFS_AREA) %>%
   mutate(value_dc_610_to_630 = (value_dc_610 * 57225003746 + value_dc_620 * 62597059226 + value_dc_630 * 98582220025) / (57225003746 + 62597059226 + 98582220025)) # Take area weighted mean
 
-goa_temp_610_to_630_nohind <- rbind(goa_temp_ssp126_nohind, goa_temp_ssp585_nohind)
+goa_temp_610_to_630_nohind <- rbind(goa_temp_ssp126_nohind, goa_temp_ssp245_nohind, goa_temp_ssp585_nohind)
 goa_temp_610_to_630_nohind <- goa_temp_610_to_630_nohind %>% mutate(hind = 'no')
 
 
@@ -143,13 +170,19 @@ goa_temp_ssp126_hind <- ssp126_biascorrected_hind %>%
   pivot_wider(values_from = c(value_dc, value), names_from = NMFS_AREA) %>%
   mutate(value_dc_610_to_630 = (value_dc_610 * 57225003746 + value_dc_620 * 62597059226 + value_dc_630 * 98582220025) / (57225003746 + 62597059226 + 98582220025)) # Take area weighted mean
 
+goa_temp_ssp245_hind <- ssp245_biascorrected_hind %>%
+  filter(varname == "temp" & depthclass %in% c("Surface", "Bottom") & NMFS_AREA %in% c("610", "620", "630")) %>%
+  mutate(simulation = "ssp245") %>%
+  pivot_wider(values_from = c(value_dc, value), names_from = NMFS_AREA) %>%
+  mutate(value_dc_610_to_630 = (value_dc_610 * 57225003746 + value_dc_620 * 62597059226 + value_dc_630 * 98582220025) / (57225003746 + 62597059226 + 98582220025)) # Take area weighted mean
+
 goa_temp_ssp585_hind <- ssp585_biascorrected_hind %>%
   filter(varname == "temp" & depthclass %in% c("Surface", "Bottom") & NMFS_AREA %in% c("610", "620", "630")) %>% 
   mutate(simulation = "ssp585") %>%
   pivot_wider(values_from = c(value_dc, value), names_from = NMFS_AREA) %>%
   mutate(value_dc_610_to_630 = (value_dc_610 * 57225003746 + value_dc_620 * 62597059226 + value_dc_630 * 98582220025) / (57225003746 + 62597059226 + 98582220025)) # Take area weighted mean
 
-goa_temp_610_to_630_hind <- rbind(goa_temp_ssp126_hind, goa_temp_ssp585_hind)
+goa_temp_610_to_630_hind <- rbind(goa_temp_ssp126_hind, goa_temp_ssp245_hind, goa_temp_ssp585_hind)
 goa_temp_610_to_630_hind <- goa_temp_610_to_630_hind %>% mutate(hind = 'yes')
 
 
@@ -164,7 +197,8 @@ goa_temp_610_to_630 <- goa_temp_610_to_630 %>%
   relocate(hind, .before = varname) %>%
   relocate(simulation, .before = varname)
 
-write.csv(goa_temp_610_to_630, 'Output/goa_temperature_610_to_630_300m.csv', row.names = F)
+write.csv(goa_temp_610_to_630 %>%
+            filter(hind == "yes"), 'Output/goa_temperature_610_to_630_300m.csv', row.names = F)
 
 
 # ---------------------------------------
@@ -192,5 +226,6 @@ ggplot(goa_temp_610_to_630_FebApril %>% filter(depthclass == "Bottom"), aes(year
   facet_wrap(~simulation + hind)
 
 # -- Save
-write.csv(goa_temp_610_to_630_FebApril, 'Output/goa_temp_610_to_630_summer_300M.csv', row.names = F)
+write.csv(goa_temp_610_to_630_FebApril %>%
+            filter(hind == "yes"), 'Output/goa_temp_610_to_630_summer_300M.csv', row.names = F)
 
