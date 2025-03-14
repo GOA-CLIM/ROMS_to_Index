@@ -75,7 +75,7 @@ When doing the delta correction, users can decide whether they want the end prod
 
 Environmental indices can be derived for each modelers following their specific needs. We don't develop all indices here as individual modeler's needs may vary. But, indices integrated across each spatial NMFS management area should be area weighted using the following areas.
 
-A quarto document document exampling some index generation can be found [here](https://github.com/GOA-CLIM/ROMS_to_Index/blob/main/ROMS%20index%20generation.qmd)
+A quarto document document exampling some index generation can be found [here](https://github.com/GOA-CLIM/ROMS_to_Index/blob/main/ROMS%20index%20generation%20example.qmd)
 
 
 # Locations of monthly average output files on `loon`
