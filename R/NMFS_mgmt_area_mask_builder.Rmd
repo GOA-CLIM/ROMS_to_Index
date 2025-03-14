@@ -174,12 +174,12 @@ NMFS640 <- goa_mask %>% filter(NMFS_AREA %in% c(640))
 NMFS650 <- goa_mask %>% filter(NMFS_AREA %in% c(650))
 
 setwd("..")
-st_write(NMFS610, "Data/Depth trimmed NMFS shapefiles/NMFS610.shp", append = FALSE)
-st_write(NMFS620, "Data/Depth trimmed NMFS shapefiles/NMFS620.shp", append = FALSE)
-st_write(NMFS630, "Data/Depth trimmed NMFS shapefiles/NMFS630.shp", append = FALSE)
-st_write(NMFS640, "Data/Depth trimmed NMFS shapefiles/NMFS640.shp", append = FALSE)
-st_write(NMFS650, "Data/Depth trimmed NMFS shapefiles/NMFS650.shp", append = FALSE)
-st_write(goa_mask, "Data/Depth trimmed NMFS shapefiles/NMFS610-650.shp", append = FALSE)
+st_write(NMFS610, "Data/Depth trimmed NMFS shapefiles 1000m/NMFS610.shp", append = FALSE)
+st_write(NMFS620, "Data/Depth trimmed NMFS shapefiles 1000m/NMFS620.shp", append = FALSE)
+st_write(NMFS630, "Data/Depth trimmed NMFS shapefiles 1000m/NMFS630.shp", append = FALSE)
+st_write(NMFS640, "Data/Depth trimmed NMFS shapefiles 1000m/NMFS640.shp", append = FALSE)
+st_write(NMFS650, "Data/Depth trimmed NMFS shapefiles 1000m/NMFS650.shp", append = FALSE)
+st_write(goa_mask, "Data/Depth trimmed NMFS shapefiles 1000m/NMFS610-650.shp", append = FALSE)
 ```
 
 

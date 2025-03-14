@@ -62,4 +62,4 @@ ggplot()+
 
 
 # Save
-st_write(goa_mask, "Data/Depth trimmed NMFS shapefiles/NMFS610-650.shp", append = FALSE)
+st_write(goa_mask, "Data/Depth trimmed NMFS shapefiles 1000m/NMFS610-650.shp", append = FALSE)

@@ -2,16 +2,16 @@
 pacman::p_load(mgcv, dplyr, lubridate, ggplot2, tidyr)
 
 # Load data averaged across depth and strata
-nep_hind <- read.csv("Data/NEP_10k_indices/nep_avg_hind.csv")
+nep_hind <- read.csv("Data/NEP_10k_revised_indices/nep_avg_hind.csv")
 nep_hind$simulation = "hindcast"
 
-nep_hist <- read.csv("Data/NEP_10k_indices/nep_avg_wb_hist.csv")
+nep_hist <- read.csv("Data/NEP_10k_revised_indices/nep_avg_wb_hist.csv")
 nep_hist$simulation = "historical"
 
-nep_ssp126 <- read.csv("Data/NEP_10k_indices/nep_avg_wb_ssp126.csv")
+nep_ssp126 <- read.csv("Data/NEP_10k_revised_indices/nep_avg_wb_ssp126.csv")
 nep_ssp126$simulation = "ssp126"
 
-nep_585 <- read.csv("Data/NEP_10k_indices/nep_avg_wb_ssp585.csv")
+nep_585 <- read.csv("Data/NEP_10k_revised_indices/nep_avg_wb_ssp585.csv")
 nep_585$simulation = "ssp585"
 
 # Combine in list

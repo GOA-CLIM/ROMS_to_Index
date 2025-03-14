@@ -8,7 +8,7 @@ source("R/Delta_correction.R")
 # ------------------------------------------
 # CALCULATE AREA PER NMFS MGMT AREA
 # ------------------------------------------
-nmfs <- st_read('Data/Depth trimmed NMFS shapefiles 300/NMFS610-650.shp')
+nmfs <- st_read('Data/Depth trimmed NMFS shapefiles 300m/NMFS610-650.shp')
 areas <- nmfs %>% rowwise() %>% mutate(areas = st_area(geometry)) %>% ungroup()
 
 # area 650 for the 300 m mask is split into two, due to a deep channel. Combine it.
