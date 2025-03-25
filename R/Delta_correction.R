@@ -18,7 +18,7 @@ delta_correction <- function(
     projection = fut,
     ref_yrs = 1990:2014,
     lognormal = FALSE,
-    use_sd = TRUE,
+    use_sd = FALSE,
     include_hindcast = FALSE){
   
   # Convert to log
